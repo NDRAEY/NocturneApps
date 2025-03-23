@@ -6,9 +6,9 @@
 #include <string.h>
 #include <time.h>
 
-unsigned int days_in_months[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+static unsigned int days_in_months[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-char* months[12] = {
+static char* months[12] = {
 	"January",
 	"February",
 	"March",
@@ -22,6 +22,17 @@ char* months[12] = {
 	"November",
 	"December"
 };
+
+static char* days_of_week[7] = {
+	"Sunday",
+	"Monday",
+	"Tuesday",
+	"Wednesday",
+	"Thursday",
+	"Friday",
+	"Saturday"	
+};
+
 
 unsigned int dayofweek(unsigned int d, unsigned int m, unsigned int y) {
     int t[] = { 0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4 };
@@ -65,23 +76,12 @@ int main(int argc, char** argv) {
 		month = month_by_name(argv[argc - 1], month);
 	}
 
-	char* days_of_week[7] = {
-		"Sunday",
-		"Monday",
-		"Tuesday",
-		"Wednesday",
-		"Thursday",
-		"Friday",
-		"Saturday"	
-	};
-
 	int year = tm.year;
 
 	printf("%10s %d\n", months[month], year);
 
 	for(int i = 0; i < 7; i++) {
-		// printf("%.2s ", days_of_week[i]);
-		printf("%c%c ", days_of_week[i][0], days_of_week[i][1]);
+		printf("%.2s ", days_of_week[i]);
 	}
 
 	printf("\n");
