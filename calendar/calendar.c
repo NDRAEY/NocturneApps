@@ -1,7 +1,6 @@
 // Calendar - original code by NDRAEY for SayoriOS (c) 2023
 
 #include <common.h>
-#include <stdbool.h>
 #include <printf.h>
 #include <string.h>
 #include <time.h>
